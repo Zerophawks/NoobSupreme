@@ -1,0 +1,1101 @@
+openapi: 3.0.0
+info:
+  title: Noob Supreme API
+  version: 1.0.0
+servers:
+- url: https://noobsupreme.com/api/v1
+  description: Production server (uses live data)
+paths:
+  /characters:
+    get:
+      summary: Get a list of characters
+      operationId: characters_get
+      responses:
+        "200":
+          description: A JSON array of characters
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Character'
+                x-content-type: application/json
+      x-openapi-router-controller: swagger_server.controllers.default_controller
+    post:
+      summary: Create a new character
+      operationId: characters_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Character'
+        required: true
+      responses:
+        "201":
+          description: Character created
+      x-openapi-router-controller: swagger_server.controllers.default_controller
+  /characters/{id}:
+    get:
+      summary: Get a character by ID
+      operationId: characters_id_get
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: A single character
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Character'
+      x-openapi-router-controller: swagger_server.controllers.default_controller
+    put:
+      summary: Update a character by ID
+      operationId: characters_id_put
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Character'
+        required: true
+      responses:
+        "200":
+          description: Character updated
+      x-openapi-router-controller: swagger_server.controllers.default_controller
+    delete:
+      summary: Delete a character by ID
+      operationId: characters_id_delete
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "204":
+          description: Character deleted
+      x-openapi-router-controller: swagger_server.controllers.default_controller
+  /npcs:
+    get:
+      summary: Get a list of NPCs
+      operationId: npcs_get
+      responses:
+        "200":
+          description: A JSON array of NPCs
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/NPC'
+                x-content-type: application/json
+      x-openapi-router-controller: swagger_server.controllers.default_controller
+    post:
+      summary: Create a new NPC
+      operationId: npcs_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NPC'
+        required: true
+      responses:
+        "201":
+          description: NPC created
+      x-openapi-router-controller: swagger_server.controllers.default_controller
+  /npcs/{id}:
+    get:
+      summary: Get an NPC by ID
+      operationId: npcs_id_get
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: A single NPC
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NPC'
+      x-openapi-router-controller: swagger_server.controllers.default_controller
+    put:
+      summary: Update an NPC by ID
+      operationId: npcs_id_put
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NPC'
+        required: true
+      responses:
+        "200":
+          description: NPC updated
+      x-openapi-router-controller: swagger_server.controllers.default_controller
+    delete:
+      summary: Delete an NPC by ID
+      operationId: npcs_id_delete
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "204":
+          description: NPC deleted
+      x-openapi-router-controller: swagger_server.controllers.default_controller
+  /monsters:
+    get:
+      summary: Get a list of monsters
+      operationId: monsters_get
+      responses:
+        "200":
+          description: A JSON array of monsters
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Monster'
+                x-content-type: application/json
+      x-openapi-router-controller: swagger_server.controllers.default_controller
+    post:
+      summary: Create a new monster
+      operationId: monsters_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Monster'
+        required: true
+      responses:
+        "201":
+          description: Monster created
+      x-openapi-router-controller: swagger_server.controllers.default_controller
+  /monsters/{id}:
+    get:
+      summary: Get a monster by ID
+      operationId: monsters_id_get
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: A single monster
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Monster'
+      x-openapi-router-controller: swagger_server.controllers.default_controller
+    put:
+      summary: Update a monster by ID
+      operationId: monsters_id_put
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Monster'
+        required: true
+      responses:
+        "200":
+          description: Monster updated
+      x-openapi-router-controller: swagger_server.controllers.default_controller
+    delete:
+      summary: Delete a monster by ID
+      operationId: monsters_id_delete
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "204":
+          description: Monster deleted
+      x-openapi-router-controller: swagger_server.controllers.default_controller
+  /items:
+    get:
+      summary: Get a list of items
+      operationId: items_get
+      responses:
+        "200":
+          description: A JSON array of items
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Item'
+                x-content-type: application/json
+      x-openapi-router-controller: swagger_server.controllers.default_controller
+    post:
+      summary: Create a new item
+      operationId: items_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Item'
+        required: true
+      responses:
+        "201":
+          description: Item created
+      x-openapi-router-controller: swagger_server.controllers.default_controller
+  /items/{id}:
+    get:
+      summary: Get an item by ID
+      operationId: items_id_get
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: A single item
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Item'
+      x-openapi-router-controller: swagger_server.controllers.default_controller
+    put:
+      summary: Update an item by ID
+      operationId: items_id_put
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Item'
+        required: true
+      responses:
+        "200":
+          description: Item updated
+      x-openapi-router-controller: swagger_server.controllers.default_controller
+    delete:
+      summary: Delete an item by ID
+      operationId: items_id_delete
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "204":
+          description: Item deleted
+      x-openapi-router-controller: swagger_server.controllers.default_controller
+  /spells:
+    get:
+      summary: Get a list of spells
+      operationId: spells_get
+      responses:
+        "200":
+          description: A JSON array of spells
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Spell'
+                x-content-type: application/json
+      x-openapi-router-controller: swagger_server.controllers.default_controller
+    post:
+      summary: Create a new spell
+      operationId: spells_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Spell'
+        required: true
+      responses:
+        "201":
+          description: Spell created
+      x-openapi-router-controller: swagger_server.controllers.default_controller
+  /spells/{id}:
+    get:
+      summary: Get a spell by ID
+      operationId: spells_id_get
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: A single spell
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Spell'
+      x-openapi-router-controller: swagger_server.controllers.default_controller
+    put:
+      summary: Update a spell by ID
+      operationId: spells_id_put
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Spell'
+        required: true
+      responses:
+        "200":
+          description: Spell updated
+      x-openapi-router-controller: swagger_server.controllers.default_controller
+    delete:
+      summary: Delete a spell by ID
+      operationId: spells_id_delete
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "204":
+          description: Spell deleted
+      x-openapi-router-controller: swagger_server.controllers.default_controller
+  /encounters:
+    get:
+      summary: Get a list of encounters
+      operationId: encounters_get
+      responses:
+        "200":
+          description: A JSON array of encounters
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Encounter'
+                x-content-type: application/json
+      x-openapi-router-controller: swagger_server.controllers.default_controller
+    post:
+      summary: Create a new encounter
+      operationId: encounters_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Encounter'
+        required: true
+      responses:
+        "201":
+          description: Encounter created
+      x-openapi-router-controller: swagger_server.controllers.default_controller
+  /encounters/{id}:
+    get:
+      summary: Get an encounter by ID
+      operationId: encounters_id_get
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: A single encounter
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Encounter'
+      x-openapi-router-controller: swagger_server.controllers.default_controller
+    put:
+      summary: Update an encounter by ID
+      operationId: encounters_id_put
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Encounter'
+        required: true
+      responses:
+        "200":
+          description: Encounter updated
+      x-openapi-router-controller: swagger_server.controllers.default_controller
+    delete:
+      summary: Delete an encounter by ID
+      operationId: encounters_id_delete
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "204":
+          description: Encounter deleted
+      x-openapi-router-controller: swagger_server.controllers.default_controller
+  /campaigns:
+    get:
+      summary: Get a list of campaigns
+      operationId: campaigns_get
+      responses:
+        "200":
+          description: A JSON array of campaigns
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Campaign'
+                x-content-type: application/json
+      x-openapi-router-controller: swagger_server.controllers.default_controller
+    post:
+      summary: Create a new campaign
+      operationId: campaigns_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Campaign'
+        required: true
+      responses:
+        "201":
+          description: Campaign created
+      x-openapi-router-controller: swagger_server.controllers.default_controller
+  /campaigns/{id}:
+    get:
+      summary: Get a campaign by ID
+      operationId: campaigns_id_get
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: A single campaign
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Campaign'
+      x-openapi-router-controller: swagger_server.controllers.default_controller
+    put:
+      summary: Update a campaign by ID
+      operationId: campaigns_id_put
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Campaign'
+        required: true
+      responses:
+        "200":
+          description: Campaign updated
+      x-openapi-router-controller: swagger_server.controllers.default_controller
+    delete:
+      summary: Delete a campaign by ID
+      operationId: campaigns_id_delete
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "204":
+          description: Campaign deleted
+      x-openapi-router-controller: swagger_server.controllers.default_controller
+  /users:
+    get:
+      summary: Get a list of users
+      operationId: users_get
+      responses:
+        "200":
+          description: A JSON array of users
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+                x-content-type: application/json
+      x-openapi-router-controller: swagger_server.controllers.default_controller
+    post:
+      summary: Create a new user
+      operationId: users_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+        required: true
+      responses:
+        "201":
+          description: User created
+      x-openapi-router-controller: swagger_server.controllers.default_controller
+  /users/{id}:
+    get:
+      summary: Get a user by ID
+      operationId: users_id_get
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: A single user
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+      x-openapi-router-controller: swagger_server.controllers.default_controller
+    put:
+      summary: Update a user by ID
+      operationId: users_id_put
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+        required: true
+      responses:
+        "200":
+          description: User updated
+      x-openapi-router-controller: swagger_server.controllers.default_controller
+    delete:
+      summary: Delete a user by ID
+      operationId: users_id_delete
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "204":
+          description: User deleted
+      x-openapi-router-controller: swagger_server.controllers.default_controller
+components:
+  schemas:
+    Character:
+      required:
+      - class
+      - name
+      - race
+      type: object
+      properties:
+        name:
+          type: string
+        race:
+          type: string
+        class:
+          type: string
+      example:
+        race: race
+        name: name
+        class: class
+    NPC:
+      required:
+      - name
+      - race
+      type: object
+      properties:
+        name:
+          type: string
+        race:
+          type: string
+        class:
+          type: string
+        alignment:
+          type: string
+        languages:
+          type: array
+          items:
+            type: string
+        specialAbilities:
+          type: array
+          items:
+            type: string
+      example:
+        specialAbilities:
+        - specialAbilities
+        - specialAbilities
+        race: race
+        languages:
+        - languages
+        - languages
+        name: name
+        alignment: alignment
+        class: class
+    Monster:
+      required:
+      - abilityScores
+      - armorClass
+      - hitPoints
+      - name
+      - size
+      - type
+      type: object
+      properties:
+        name:
+          type: string
+        type:
+          type: string
+        size:
+          type: string
+        alignment:
+          type: string
+        abilityScores:
+          $ref: '#/components/schemas/Monster_abilityScores'
+        hitPoints:
+          type: integer
+        speed:
+          type: string
+        armorClass:
+          type: integer
+        skills:
+          type: array
+          items:
+            type: string
+        senses:
+          type: array
+          items:
+            type: string
+        languages:
+          type: array
+          items:
+            type: string
+        challengeRating:
+          type: integer
+        xp:
+          type: integer
+        specialAbilities:
+          type: array
+          items:
+            type: string
+        actions:
+          type: array
+          items:
+            type: string
+        reactions:
+          type: array
+          items:
+            type: string
+      example:
+        languages:
+        - languages
+        - languages
+        senses:
+        - senses
+        - senses
+        type: type
+        abilityScores:
+          dexterity: 6
+          constitution: 1
+          strength: 0
+          charisma: 2
+          intelligence: 5
+          wisdom: 5
+        speed: speed
+        skills:
+        - skills
+        - skills
+        challengeRating: 3
+        specialAbilities:
+        - specialAbilities
+        - specialAbilities
+        size: size
+        armorClass: 9
+        name: name
+        xp: 2
+        hitPoints: 7
+        reactions:
+        - reactions
+        - reactions
+        alignment: alignment
+        actions:
+        - actions
+        - actions
+    Item:
+      required:
+      - description
+      - name
+      - rarity
+      - type
+      type: object
+      properties:
+        name:
+          type: string
+        type:
+          type: string
+        rarity:
+          type: string
+        description:
+          type: string
+        properties:
+          type: array
+          items:
+            type: string
+        attunementRequired:
+          type: boolean
+        effect:
+          type: string
+      example:
+        effect: effect
+        name: name
+        description: description
+        type: type
+        properties:
+        - properties
+        - properties
+        rarity: rarity
+        attunementRequired: true
+    Spell:
+      required:
+      - castingTime
+      - components
+      - description
+      - duration
+      - level
+      - name
+      - range
+      - school
+      type: object
+      properties:
+        name:
+          type: string
+        level:
+          type: integer
+        school:
+          type: string
+        castingTime:
+          type: string
+        range:
+          type: string
+        components:
+          type: string
+        duration:
+          type: string
+        description:
+          type: string
+      example:
+        duration: duration
+        castingTime: castingTime
+        components: components
+        level: 0
+        school: school
+        name: name
+        range: range
+        description: description
+    Encounter:
+      required:
+      - difficultyLevel
+      - monsters
+      - name
+      type: object
+      properties:
+        name:
+          type: string
+        difficultyLevel:
+          type: string
+        monsters:
+          type: array
+          items:
+            type: string
+        terrain:
+          type: string
+        environmentalFactors:
+          type: string
+        rewards:
+          $ref: '#/components/schemas/Encounter_rewards'
+      example:
+        difficultyLevel: difficultyLevel
+        name: name
+        monsters:
+        - monsters
+        - monsters
+        terrain: terrain
+        environmentalFactors: environmentalFactors
+        rewards:
+          xp: 0
+          items:
+          - items
+          - items
+    Campaign:
+      required:
+      - quests
+      - storylines
+      - title
+      type: object
+      properties:
+        title:
+          type: string
+        storylines:
+          type: array
+          items:
+            type: string
+        quests:
+          type: array
+          items:
+            type: string
+        charactersInvolved:
+          type: array
+          items:
+            type: string
+        npcsInvolved:
+          type: array
+          items:
+            type: string
+        locations:
+          type: array
+          items:
+            type: string
+        maps:
+          type: array
+          items:
+            type: string
+        sessionLogs:
+          type: array
+          items:
+            type: string
+        outcomes:
+          type: string
+      example:
+        sessionLogs:
+        - sessionLogs
+        - sessionLogs
+        charactersInvolved:
+        - charactersInvolved
+        - charactersInvolved
+        maps:
+        - maps
+        - maps
+        quests:
+        - quests
+        - quests
+        outcomes: outcomes
+        locations:
+        - locations
+        - locations
+        title: title
+        storylines:
+        - storylines
+        - storylines
+        npcsInvolved:
+        - npcsInvolved
+        - npcsInvolved
+    User:
+      required:
+      - email
+      - username
+      type: object
+      properties:
+        username:
+          type: string
+        email:
+          type: string
+        characters:
+          type: array
+          items:
+            $ref: '#/components/schemas/Character'
+        campaigns:
+          type: array
+          items:
+            $ref: '#/components/schemas/Campaign'
+      example:
+        characters:
+        - race: race
+          name: name
+          class: class
+        - race: race
+          name: name
+          class: class
+        campaigns:
+        - sessionLogs:
+          - sessionLogs
+          - sessionLogs
+          charactersInvolved:
+          - charactersInvolved
+          - charactersInvolved
+          maps:
+          - maps
+          - maps
+          quests:
+          - quests
+          - quests
+          outcomes: outcomes
+          locations:
+          - locations
+          - locations
+          title: title
+          storylines:
+          - storylines
+          - storylines
+          npcsInvolved:
+          - npcsInvolved
+          - npcsInvolved
+        - sessionLogs:
+          - sessionLogs
+          - sessionLogs
+          charactersInvolved:
+          - charactersInvolved
+          - charactersInvolved
+          maps:
+          - maps
+          - maps
+          quests:
+          - quests
+          - quests
+          outcomes: outcomes
+          locations:
+          - locations
+          - locations
+          title: title
+          storylines:
+          - storylines
+          - storylines
+          npcsInvolved:
+          - npcsInvolved
+          - npcsInvolved
+        email: email
+        username: username
+    Monster_abilityScores:
+      type: object
+      properties:
+        strength:
+          type: integer
+        dexterity:
+          type: integer
+        constitution:
+          type: integer
+        intelligence:
+          type: integer
+        wisdom:
+          type: integer
+        charisma:
+          type: integer
+      example:
+        dexterity: 6
+        constitution: 1
+        strength: 0
+        charisma: 2
+        intelligence: 5
+        wisdom: 5
+    Encounter_rewards:
+      type: object
+      properties:
+        xp:
+          type: integer
+        items:
+          type: array
+          items:
+            type: string
+      example:
+        xp: 0
+        items:
+        - items
+        - items
+
